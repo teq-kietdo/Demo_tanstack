@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.spinner {
+  @apply w-10 h-10 rounded-full relative m-auto before:content-[""] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:rounded-full
+    before:border-[0.25rem] before:border-gray-200 before:border-r-purple-500 before:border-b-gray-200 before:animate-spinner;
+}
