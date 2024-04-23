@@ -87,6 +87,7 @@ const FilterTable = (props: Props) => {
     // manualFiltering: true,
     getCoreRowModel: getCoreRowModel(),
   });
+  console.log("test");
   return (
     <div className="relative">
       {/* <div className="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center pb-4"> */}
