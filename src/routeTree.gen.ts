@@ -16,6 +16,7 @@ import { Route as AuthImport } from './routes/_auth'
 import { Route as AuthIndexImport } from './routes/_auth/index'
 import { Route as AuthVideoImport } from './routes/_auth/video'
 import { Route as AuthTelevisionImport } from './routes/_auth/television'
+import { Route as AuthTableImport } from './routes/_auth/table'
 import { Route as AuthProfileImport } from './routes/_auth/profile'
 import { Route as AuthMovieImport } from './routes/_auth/$movie'
 
@@ -43,6 +44,11 @@ const AuthVideoRoute = AuthVideoImport.update({
 
 const AuthTelevisionRoute = AuthTelevisionImport.update({
   path: '/television',
+  getParentRoute: () => AuthRoute,
+} as any)
+
+const AuthTableRoute = AuthTableImport.update({
+  path: '/table',
   getParentRoute: () => AuthRoute,
 } as any)
 
@@ -76,6 +82,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthProfileImport
       parentRoute: typeof AuthImport
     }
+    '/_auth/table': {
+      preLoaderRoute: typeof AuthTableImport
+      parentRoute: typeof AuthImport
+    }
     '/_auth/television': {
       preLoaderRoute: typeof AuthTelevisionImport
       parentRoute: typeof AuthImport
@@ -97,6 +107,7 @@ export const routeTree = rootRoute.addChildren([
   AuthRoute.addChildren([
     AuthMovieRoute,
     AuthProfileRoute,
+    AuthTableRoute,
     AuthTelevisionRoute,
     AuthVideoRoute,
     AuthIndexRoute,

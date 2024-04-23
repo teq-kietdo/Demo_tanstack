@@ -3,6 +3,38 @@
 @tailwind utilities;
 
 .spinner {
-  @apply w-10 h-10 rounded-full relative m-auto before:content-[""] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:rounded-full
+  @apply w-10 h-10 rounded-full relative m-auto before:content-[] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:rounded-full
     before:border-[0.25rem] before:border-gray-200 before:border-r-purple-500 before:border-b-gray-200 before:animate-spinner;
+}
+
+.th {
+  border-bottom: 2px solid transparent;
+  border-right: 2px solid transparent;
+  padding: 4px 8px;
+}
+.resizer {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 5px;
+  background: #27bbff;
+  cursor: col-resize;
+  user-select: none;
+  touch-action: none;
+  border-radius: 6px;
+}
+.resizer.isResizing {
+  background: #2eff31;
+  opacity: 1;
+}
+@media (hover: hover) {
+  .resizer {
+    opacity: 0;
+  }
+
+  *:hover > .resizer {
+    opacity: 1;
+  }
 }
